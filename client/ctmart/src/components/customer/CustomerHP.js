@@ -13,13 +13,13 @@ import SliderPage from 'react-slider-page';
 
 function VideoPage(){
   return(
-    <div>
-      <>HELLO</>
+    <div><>................</>
       <SliderPage>
         <section>
           <div>
           <video src={video1} autoPlay loop muted></video>
           </div>
+          
         </section>
         <section>
           <div>
@@ -28,12 +28,12 @@ function VideoPage(){
         </section>
         <section>
           <div>
-          <video src={video3} autoPlay loop muted><h1>hello</h1></video>
+          <video src={video3} autoPlay loop muted></video>
           </div>
         </section>
         <section>
           <div>
-          <video src={video4} autoPlay loop muted><h1>hello</h1></video>
+          <video src={video4} autoPlay loop muted></video>
           </div>
         </section>
       </SliderPage>
@@ -41,20 +41,19 @@ function VideoPage(){
   );
 }
 
+
 function CustomerHP() {
   return (
     <header className='App-header'>
   <div className='App-header'>
+ 
   <div className='container-page'>{VideoPage()}</div>
     <AppBar position="static" style={{backgroundColor: "#FFC107", position: "absolute", top: "0"}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
         <Box>
           <input className='logo-menubar' type="image" src="images/logo.png" alt="Submit"/>
-          <h4>CTMART</h4>
-          <Link to={'/CustomerHP'}>
-          <h5 className='label1' style={{ right: "40rem", color:"white", fontWeight:"800"}}>Home Page</h5>
-          </Link>
+          <Link to={'/CustomerHP'}><h4>CTMART</h4></Link>
           <Link to={'/BookConcert'}>
           <h5 className='label1' style={{ right: "27rem"}}>Book Concert</h5>
           </Link>
@@ -71,10 +70,7 @@ function CustomerHP() {
         </Toolbar>
       </Container>
     </AppBar>
-    
-    
   </div>
-  
   </header>
 
   );

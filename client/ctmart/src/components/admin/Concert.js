@@ -4,66 +4,69 @@ import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import {Link, useNavigate, userNavigate} from 'react-router-dom';
+import Avatar from 'react-avatar';
+
+
+
 function ConcertCon() {
 
   return(
     <header className='App-header'>
-    <div>
-    <h1 style={{fontFamily:'Poppins', textAlign: 'centar'}}>CONCERT</h1>
-      <div className='concertTab'>
-
-      <Box className='concertTbl tab-con'style={{backgroundColor:'#FFC107'}}>
-        <Link to={'/Concert'}><h5 className='tab-con-label1'>ViewTable</h5></Link>
-      </Box>
-      
-      <Box className='concertTbl tab-acc'>
-      <Link to={'/Concert/UpdateConcert'}><h5 className='tab-con-label2'>UpdateConcert</h5></Link>
-      </Box>
+    <div><br/>
+    <h1 style={{fontFamily:'Poppins', textAlign: 'center'}}>CONCERT</h1>
+      <div className='concertTab' style={{top: '8rem'}}>
+        <Box className='concertTbl tab-con'style={{backgroundColor:'#FFC107'}}>
+          <Link to={'/Concert'}><h5 className='tab-con-label1'>ViewTable</h5></Link>
+        </Box>
+        <Box className='concertTbl tab-acc'>
+          <Link to={'/Concert/UpdateConcert'}><h5 className='tab-con-label2'>UpdateConcert</h5></Link>
+        </Box>
         <Box className='concertTbl tab-cus'>
-        <Link to={'/Concert/AddConcert'}><h5 className='tab-con-label3'>AddConcert</h5></Link>
+          <Link to={'/Concert/AddConcert'}><h5 className='tab-con-label3'>AddConcert</h5></Link>
         </Box>
         <Box className='concertTbl'>
         <h1 style={{fontFamily:'Poppins', textAlign: 'left', marginLeft: '2rem', position: 'absolute', marginTop:'1rem'}}>Concert</h1><br></br>
-        <div className='content-concert'>
-          <table id="tbl" >
-  <tr>
-    <th>id</th>
-    <th>Performer</th>
-    <th>Performer Type</th>
-  </tr>
-  <tr>
-    <td>00001</td>
-    <td>Markovian</td>
-    <td>Singer</td>
-    <td>
-      <Link to={'./EditPerformer'}>
-      <input className="btnUp" type="submit" name="btnUpdate" label="btnUpdate" value="Update"/>
-      </Link> 
-    </td>
-    <td><input className="btnDel" type="submit" name="btnDel" label="btnDel" value="Delete"/></td>
-  </tr>  
-  <tr>
-  <td>00001</td>
-    <td>Markovian</td>
-    <td>Singer</td>
-    <td>      
-      <Link to={'./EditPerformer'}>
-      <input className="btnUp" type="submit" name="btnUpdate" label="btnUpdate" value="Update"/>
-      </Link> 
-    </td>
-    <td><input className="btnDel" type="submit" name="btnDel" label="btnDel" value="Delete"/></td>  
-  </tr>    
-  </table>
-
-
-        </div>
-        </Box><br/><br/>
-        <Link to={'/Venue'}>
-          <input type="submit" name="btnUpdate" label="btnUpdate" value="View Venue" style={{bottom:'-50rem'}}/>
-        </Link>
-        <Link to={'/Performer'}>
-          <input type="submit" name="btnUpdate" label="btnUpdate" value="View Performer" style={{bottom:'-50rem'}}/>
-        </Link>
+          <div className='content-concert'>
+            <table id="tbl" >
+              <tr>
+                <th>ConcertID</th>
+                <th>Concert Name</th>
+                <th>Venue</th>
+                <th>Performer</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>TicketID</th>
+                <th></th>
+                <th></th>
+              </tr>
+              <tr>
+                <td>ConcertID</td>
+                <td>Concert Name</td>
+                <td>Venue</td>
+                <td>Performer</td>
+                <td>Date</td>
+                <td>Time</td>
+                <td>TicketID</td>
+                <td>
+                  <Link to={'./UpdateConcert'}>
+                  <input className="btnUp" type="submit" name="btnUpdate" label="btnUpdate" value="Update"/>
+                  </Link> 
+                </td>
+                <td>
+                  <Link to={'/RecycleBin/ConcertTable'}>
+                  <input className="btnDel" type="submit" name="btnDel" label="btnDel" value="Delete"/>
+                  </Link>
+                </td>
+              </tr> 
+              </table>
+                   </div>
+                    </Box><br/>
+                    <Link to={'/Venue'}>
+                      <input type="submit" name="btnUpdate" label="btnUpdate" value="View Venue" style={{bottom:'-50rem'}}/>
+                    </Link>
+                    <Link to={'/Performer'}>
+                      <input type="submit" name="btnUpdate" label="btnUpdate" value="View Performer" style={{bottom:'-50rem'}}/>
+                    </Link>
       </div>  
       </div>
     </header>  
@@ -76,8 +79,11 @@ function ConcertCon() {
 function AdminHP() {
   return (
   <div className='App-header'>
-    <div className='container-page'>{ConcertCon()}
-    <AppBar className='admin-menu-bar'>
+    <div className='container-page'>
+      <Avatar googleId="118096717852922241760" size="75" round={true} style={{top:'1.5rem', left: '120rem', position:'relative'}}/>
+      <h1 style={{fontFamily:'Poppins', textAlign: 'right', right: '10rem', position:'relative', top: '-1.5rem'}}>PINK JEAN</h1>
+      {ConcertCon()}</div>
+    <AppBar position="static" className='admin-menu-bar' style={{backgroundColor: "#FFC107", position: "absolute", top: "0", left:'0px', width: '21%', height:'100%'}}>
       <Container maxWidth="xl" style={{opacity:'1'}}>
         <Toolbar disableGutters style={{opacity:'1'}}>
         <Box>
@@ -111,7 +117,6 @@ function AdminHP() {
         </Toolbar>
       </Container>
     </AppBar>
-    </div>
   </div>
     
   );

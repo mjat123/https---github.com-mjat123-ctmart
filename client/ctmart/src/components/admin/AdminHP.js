@@ -18,18 +18,7 @@ function Dashboard() {
       <Box className='dashb-box feature3'>
       </Box>
       
-      <Box className='dashb-box feature5'>
-        <Box className='dashb-box feature5 concertTbl tab-acc'>
-          
-      <Box className='dashb-box feature5 concertTbl tab-cus'>
-        <Box className='dashb-box feature5 concertTbl tab-con'>
-        <h5 style={{top: '0.5rem', left: '2.5rem', fontSize: '20px'}}>Concert</h5>
-          <Box className='dashb-box feature5 concertTbl'>
-          </Box>
-        </Box>
-        </Box>
-        </Box>
-      </Box>
+      <Box className='dashb-box feature5'></Box>
       </div>
     </header>  
 
@@ -38,12 +27,12 @@ function Dashboard() {
 )
 }
 
-
 function AdminHP() {
   return (
+    <header className='App-header'>
   <div className='App-header'>
-    <div className='container-page'>{Dashboard()}
-    <AppBar className='admin-menu-bar'>
+    <div className='container-page'>{Dashboard()}</div>
+    <AppBar position="static" className='admin-menu-bar' style={{backgroundColor: "#FFC107", position: "absolute", top: "0", left:'0px', width: '21%', height:'100%'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
         <Box>
@@ -78,7 +67,7 @@ function AdminHP() {
       </Container>
     </AppBar>
     </div>
-  </div>
+  </header>
     
   );
 }

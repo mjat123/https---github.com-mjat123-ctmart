@@ -38,4 +38,7 @@ h1{
 .four{
     background-color: black;
 }
+video{
+    size: max-content;
+}
 

@@ -10,13 +10,18 @@ import EditVenue from './components/admin/EditVenue';
 import {BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import CustomerHP from './components/customer/CustomerHP';
 import BookConcert from './components/customer/BookConcert';
+import ProceedPayment from './components/customer/BookConcertProceed';
+import SuccessBooked from './components/customer/SuccessfullyBook';
 import CheckReservation from './components/customer/CheckRes';
+import ResDeleted from './components/customer/CheckResDeleted';
 import UpdateProfile from './components/customer/UpdateProf';
 import ConfirmPass from './components/customer/ConfirmPass';
 import AdminHP from './components/admin/AdminHP';
 import Concert from './components/admin/Concert';
 import Account from './components/admin/Account';
 import RecycleBin from './components/admin/RecycleBin';
+import RecConcert from './components/admin/RecConcert';
+import RecPerfVen from './components/admin/RecPerfVen';
 import UpdateConcert from './components/admin/UpdateConcert.js';
 import AddConcert from './components/admin/AddConcert.js';
 
@@ -41,8 +46,11 @@ function App() {
         <Route path='/CustomerHP' element={<CustomerHP /> }/>
 
         <Route path='/BookConcert' element={<BookConcert /> }/>
+        <Route path='/BookConcert/ProceedPayment' element={<ProceedPayment/> }/>
+        <Route path='/BookConcert/ProceedPayment/Success' element={<SuccessBooked/> }/>
 
         <Route path='/CheckReservation' element={<CheckReservation /> }/>
+        <Route path='/CheckReservation/RecentlyDeleted'element={<ResDeleted/> }/>
 
         <Route path='/UpdateProfile' element={<UpdateProfile /> }/>
         <Route path='/UpdateProfile/ConfirmPass' element={<ConfirmPass /> }/>
@@ -53,7 +61,10 @@ function App() {
           <Route path='/Concert/UpdateConcert' element={<UpdateConcert/> }/>
           <Route path='/Concert/AddConcert' element={<AddConcert/> }/>
         <Route path='/Account' element={<Account /> }/>
+
         <Route path='/RecycleBin' element={<RecycleBin /> }/>
+        <Route path='/RecycleBin/ConcertTable' element={<RecConcert /> }/>
+        <Route path='/RecycleBin/PerfVenTable' element={<RecPerfVen /> }/>
 
         
         <Route path='/Performer' element={<Performer/> }/>

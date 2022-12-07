@@ -23,7 +23,7 @@ function Profile() {
           </div>
           <div className='column2' style={{position:"relative", left: "-1%", marginRight:"2rem"}}>
           <label>Birthdate</label><br/>
-        <input type="text" name="birthdate" label="birthdate" placeholder='Enter Birthdate'/><br/>
+        <input type="date" name="birthdate" label="birthdate" placeholder='Enter Birthdate'/><br/>
         <label>Age</label><br/>
         <input type="text" name="age" label="age" placeholder='Enter Age'/><br/>
         <label>Email</label><br/>
@@ -36,9 +36,6 @@ function Profile() {
       </div>
       </div>
     </header>  
-
-
-        
 )
 }
 
@@ -52,10 +49,7 @@ function UpdateProf() {
         <Toolbar disableGutters>
         <Box>
           <input className='logo-menubar' type="image" src="images/logo.png" alt="Submit"/>
-          <h4>CTMART</h4>
-          <Link to={'/CustomerHP'}>
-          <h5 className='label1' style={{ right: "40rem"}}>Home Page</h5>
-          </Link>
+          <Link to={'/CustomerHP'}><h4>CTMART</h4></Link>
           <Link to={'/BookConcert'}>
           <h5 className='label1' style={{ right: "27rem"}}>Book Concert</h5>
           </Link>

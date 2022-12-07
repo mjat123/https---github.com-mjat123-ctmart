@@ -26,7 +26,7 @@ function App() {
         <label>Name</label><br/>
         <input type="text" name="fullname" label="fullname" placeholder='Enter Name'/><br/>
         <label>Birthdate</label><br/>
-        <input type="text" name="birthdate" label="birthdate" placeholder='Enter Birthdate'/><br/>
+        <input type="date" name="birthdate" label="birthdate" placeholder='Enter Birthdate'/><br/>
         <label>Age</label><br/>
         <input type="text" name="age" label="age" placeholder='Enter Age'/><br/>
         <label>Email</label><br/>

@@ -5,36 +5,65 @@ import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import {Link, useNavigate, userNavigate} from 'react-router-dom';
+import Avatar from 'react-avatar';
 function AccountTable() {
 
   return(
     <header className='App-header'>
-    <div className="App">
-      <div className='card'>
-      <h1 style={{fontFamily:'Poppins', textAlign: 'left', marginLeft: '4rem',marginTop:"2rem"}}>Update Profile</h1>
-        <div className='wrapper' style={{margin:"2rem",marginTop:"0rem"}}>
-          <div className='column1'>
-          <label>Username</label><br/>
-        <input type="text" name="username" label="Username" placeholder='Enter Username'/><br/>
-        <label>Password</label><br/>
-        <input type="password" name="password" label="Password" placeholder='Enter Password'/><br/>
-        <label>Name</label><br/>
-        <input type="text" name="fullname" label="fullname" placeholder='Enter Name'/><br/>
-        
-          </div>
-          <div className='column2' style={{position:"relative", left: "-1%", marginRight:"2rem"}}>
-          <label>Birthdate</label><br/>
-        <input type="text" name="birthdate" label="birthdate" placeholder='Enter Birthdate'/><br/>
-        <label>Age</label><br/>
-        <input type="text" name="age" label="age" placeholder='Enter Age'/><br/>
-        <label>Email</label><br/>
-        <input type="text" name="email" label="email" placeholder='Enter Email'/><br/><br/>
-          </div>
-          <Link to={'./ConfirmPass'}>
-          <input style={{position:"relative", left: "65%", width:"253px"}} className="btnAdd" type="submit" name="btnUpProf" label="btnUpProf" value="Update Profile"/><br/>
-          </Link>
-        </div>
-      </div>
+    <div><br/>
+      <div className='concertTab' style={{top: '8rem'}}>
+        <Box className='concertTbl tab-con'style={{backgroundColor:'#FFC107', width:'20rem'}}>
+          <h5 className='tab-con-label1'>Customer Account</h5>
+        </Box>
+        <Box className='concertTbl'>
+        <h1 style={{fontFamily:'Poppins', textAlign: 'left', marginLeft: '2rem', position: 'absolute', marginTop:'2rem'}}>Customer Account</h1><br></br>
+          <div className='content-concert'>
+          <table id="tbl" >
+              <tr>
+                <th>Username</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Type</th>
+                <th>Contact Number</th>
+                <th>Birthdate</th>
+                <th>Age</th>
+                <th>Email </th>
+                <th></th>
+              </tr>
+              <tr>
+                <td>mjerich</td>
+                <td>Mark Jerich</td>
+                <td>Taboada</td>
+                <td>C</td>
+                <td>09455209698</td>
+                <td>05/08/2001</td>
+                <td>21</td>
+                <td>markjerich.taboada@cit.edu</td>
+                <td>
+                  <Link to={'/RecycleBin'}>
+                  <input className="btnDel" type="submit" name="btnDel" label="btnDel" value="Block"/>
+                  </Link>
+                </td>
+              </tr>  
+              <tr>
+                <td>marksss</td>
+                <td>Markovian</td>
+                <td>Bonjinx</td>
+                <td>C</td>
+                <td>09429785600</td>
+                <td>05/08/2001</td>
+                <td>21</td>
+                <td>markjerich.taboada@cit.edu</td>
+                <td>
+                  <Link to={'/RecycleBin'}>
+                  <input className="btnDel" type="submit" name="btnDel" label="btnDel" value="Block"/>
+                  </Link>
+                </td>
+              </tr>  
+              </table>
+                   </div>
+                    </Box>
+      </div>  
       </div>
     </header>  
 
@@ -44,13 +73,17 @@ function AccountTable() {
 }
 
 
+
 function Account() {
   return (
   <div className='App-header'>
-    <div className='container-page'>{AccountTable()}</div>
-    <AppBar className='admin-menu-bar'>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
+    <div className='container-page'>
+    <Avatar googleId="118096717852922241760" size="75" round={true} style={{top:'1.5rem', left: '120rem', position:'relative'}}/>
+      <h1 style={{fontFamily:'Poppins', textAlign: 'right', right: '10rem', position:'relative', top: '-1.5rem'}}>PINK JEAN</h1>
+      {AccountTable()}</div>
+    <AppBar position="static" className='admin-menu-bar' style={{backgroundColor: "#FFC107", position: "absolute", top: "0", left:'0px', width: '21%', height:'100%'}}>
+    <Container maxWidth="xl" style={{opacity:'1'}}>
+        <Toolbar disableGutters style={{opacity:'1'}}>
         <Box>
           <input className='admin-logo' type="image" src="images/logo.png" alt="Submit"/>
           <h4 className='admin-logo-label'>CTMART</h4>

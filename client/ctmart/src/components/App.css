@@ -1,6 +1,9 @@
+
 *{
+  font-family: 'Poppins';
   padding: 0;
   margin: 0;
+
 }
 .App {
   align-items: center;
@@ -40,10 +43,11 @@
 
 }
 video{
-  width: 2050px;
+  width: 2060px;
   color: #ffebaf;
   opacity: 0.5;
-  position: inline-block;
+  left: 0rem;
+  position: relative;
   animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
   animation-duration: 2s;
 }
@@ -53,8 +57,8 @@ video:hover{
 section{
   padding:0;
   margin: 0;
-  left: -47.5%;
-  bottom: -2rem;
+  left: -5.5rem;
+  bottom: 0rem;
 }
 h5{
   position: absolute;
@@ -200,13 +204,24 @@ label{
 
 }
 .card{
-  
+
 background: #FFFFFF;
 box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
 border-radius: 26px;
 padding: 10px;
 position: relative;
+
 }
+.card-content{
+  width: 1440px;
+  height: 780px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 10px;
+  top: 5rem;
+  position: relative;
+  }
 .form{
   margin: 5rem;
   
@@ -276,6 +291,10 @@ input[type=submit].btn1:hover{
 .wrapper{   
   display: grid;
   grid-template-columns: 0.5fr 0.2fr;
+}
+.wrapper2{   
+  display: grid;
+  grid-template-columns: 0.2fr 0.2fr 0.2fr;
 }
 .column1{
   margin-left: 2rem;
@@ -351,12 +370,12 @@ table{
  
 .admin-menu-bar{
   background-color: #FFC107;
+  position: static;
   top: 0;
-  left:0;
-  width: 28%;
-  opacity: 0.4;
+  left:0px;
+  width: 21%;
   height: 100%;
-
+  opacity: 1;
 }
 .menu-bar:hover{
   opacity: 1;
@@ -384,4 +403,148 @@ table{
 .admin-label1{
   top: 40rem;
   margin: 2rem;
+}
+body {
+  font-family: Verdana, sans-serif;
+  margin: 0
+}
+.mySlides {
+  display: none
+}
+img {
+  vertical-align: middle;
+}
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+}
+/* Next & previous buttons */
+.prev,
+.next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+/* Caption text */
+.text {
+  color: #ffffff;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #ffffff;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #999999;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+.active,
+.dot:hover {
+  background-color: #111111;
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {
+    opacity: .4
+  }
+  to {
+    opacity: 1
+  }
+}
+@keyframes fade {
+  from {
+    opacity: .4
+  }
+  to {
+    opacity: 1
+  }
+}
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev,
+  .next,
+  .text {
+    font-size: 11px
+  }
+}
+select{
+width: 352px;
+height: px;
+left: 534px;
+top: 464px;
+
+background: #FDF5DF;
+border: 1px solid #DDDDDD;
+border-radius: 10px;
+}
+option{
+  font-family: 'Poppins';
+font-style: normal;
+font-weight: 300;
+font-size: 14px;
+line-height: 21px;
+
+color: #676767;
+}
+.rectangle{
+  box-sizing: border-box;
+border-radius: 10px;
+background: #FDF5DF;
+border: 1px solid #DDDDDD;
+width: 360px;
+height: 100px;
+font-family: 'Poppins';
+font-style: normal;
+font-weight: 400;
+font-size: 15.6462px;
+line-height: 23px;
+color: #292F3F;
+padding: 20px;
+box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
+padding: 10px;
+margin: 2rem;
+position: relative;
+
 }

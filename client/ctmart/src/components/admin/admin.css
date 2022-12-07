@@ -17,6 +17,16 @@
     animation-duration: 5s; /* don't forget to set a duration! */
     
   }
+  select{
+    width: 352px;
+    height: 42px;
+    left: 534px;
+    top: 464px;
+    padding:1%;
+    background: #FDF5DF;
+    border: 1px solid #DDDDDD;
+    border-radius: 10px;
+    }
   .logo-menubar{
     width: 101px; 
     padding: auto; 
@@ -169,6 +179,16 @@
       transform: rotate(360deg);
     }
   }
+  input[type=date],[type=time]{
+    width: 352px;
+height: 42px;
+left: 534px;
+top: 464px;
+padding: 2%;
+background: #FDF5DF;
+border: 1px solid #DDDDDD;
+border-radius: 10px;
+  }
   input[type=text],[type=password]{
   box-sizing: border-box;
   border-radius: 10px;
@@ -304,7 +324,7 @@
   }
   table{
     border: solid bold;
-    border-radius: 10px;
+    border-radius: 5px;
   }
   #tbl {
     font-family: 'Poppins';
@@ -329,8 +349,9 @@
   }
   
   #tbl tr:nth-child(even){background-color: #FDF5DF;}
+  #tbl tr:nth-child(odd){background-color: #fffdbe;}
   
-  #tbl tr:hover {background-color: #fffdbe;}
+  #tbl tr:hover {background-color: #FDF354;}
   
   #tbl th {
     font-family: 'Poppins';
@@ -350,12 +371,8 @@
   }
   
 .admin-menu-bar{
-    background-color: #FFC107;
-    top: 0;
-    left:0;
-    opacity: 0;
-    height: 100%;
-    width: 24%;
+
+  opacity: 0;
 }
 .admin-menu-bar:hover{
     background-color: #FFC107;
@@ -484,7 +501,7 @@
 .concertTab{
   position: absolute;
   left: 510px;
-  top: 2rem;
+  top: 5rem;
 }
 .feature1{
   left: 588px;
@@ -544,7 +561,9 @@
   opacity: 0.9;
 }
 .tab-con:hover{
-  background-color: whitesmoke;
+  background-color: #FFC107;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 
 .tab-cus{
@@ -557,7 +576,9 @@
   border-radius: 5px 15px 0px 0px;
 }
 .tab-cus:hover{
-  background-color: #DCAB17;
+  background-color: #FFC107;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
 }
 .tab-acc{
   width: 200px;
@@ -569,7 +590,7 @@
   border-radius: 5px 15px 0px 0px;
 }
 .tab-acc:hover{
-  background-color: #fff;
+  background-color: #FFC107;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   cursor: pointer;
 }
@@ -592,4 +613,38 @@
   height: 680px;
   margin: 2rem;
   position: relative;
+}
+.content-rec{
+  box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
+  background: #292F3F;
+  border-radius: 5px;
+  padding: 10px;
+  width: 600px;
+  height: 680px;
+  margin: 2rem;
+  position: relative;
+}
+.card-book{
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 10px;
+  position: absolute;
+  left: 2rem;
+  top: 9rem;
+  width: 1970px;
+  height: 820px;
+  right: 2rem;
+}
+.card-reminder{
+  background: red;
+  opacity: 0.5;
+  padding: 10px;
+  position: absolute;
+  height: 100px;
+  width: 1000px;
+  text-align: left;
+  left: 25rem;
+  align-items: center;
+
 }

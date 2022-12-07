@@ -20,20 +20,15 @@ function EditPerformer() {
       <div className='form'>
       <h1 style={{fontFamily:'Poppins', textAlign: 'left', marginLeft: '2rem'}}>Update Venue</h1>
         <label>Choose Venue</label><br/>
-        <Dropdown>
-      <Dropdown.Toggle variant="success" id="dropdown-basic">
-        Dropdown Button
-      </Dropdown.Toggle>
-
-      <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-      </Dropdown.Menu>
-    </Dropdown>
-        <label>Performer</label><br/>
+        <select name="ticketID" id="ticketID">
+            <option value="type1">10</option>
+            <option value="type2">12</option>
+            <option value="type3">14</option>
+            <option value="type">15</option>
+          </select><br/>
+        <label>Venue</label><br/>
         <input type="text" name="vname" label="vname" placeholder='Enter Venue'/><br/>
-        <label>Performer Type</label><br/>
+        <label>Capacity</label><br/>
         <input type="text" name="vtype" label="vtype" placeholder='Enter Capacity'/><br/>
         <input style={{position:"relative", left: "45%"}} className="btnAdd" type="submit" name="btnUpdateVen" label="btnUpdateVen" value="Update Venue" onClick={(e)=>handleSubmit(e)}/><br/>
       </div>
