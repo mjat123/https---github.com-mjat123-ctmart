@@ -1,0 +1,366 @@
+*{
+    padding: 0;
+    margin: 0;
+  }
+  .App {
+    align-items: center;
+    
+  }
+  
+  .my-element {
+    display: inline-block;
+    margin: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn; 
+    animation-duration: 5s; 
+    
+  }
+  .logo-menubar{
+    width: 101px; 
+    padding: auto; 
+    margin-left: -10rem;
+  }
+  .App-header-landing {
+    background-image: radial-gradient( #FDF354, #FED12E);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    background: radial-gradient( #FDF354, #FED12E);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  
+  }
+  video{
+    width: 2050px;
+    color: #ffebaf;
+    opacity: 0.5;
+    position: inline-block;;
+  }
+  video:hover{
+    opacity: 1;
+  }
+  section{
+    padding:0;
+    margin: 0;
+    left: -47.5%;
+    bottom: -2rem;
+  }
+  h5{
+    position: absolute;
+    top: 2.5rem;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    color: #000000;
+  }
+  h5:hover{
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+  
+  Box{
+      width: 300;
+      height: 300;
+      color: #000000;
+      background-color: black;
+    }
+    Box:hover{
+      background-color: white;
+    }  
+  
+  
+  .App-header {
+    background-color: #FDF5DF;;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    background-size: auto, cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+  .content {
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  
+  }
+  h1{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34.6667px;
+    line-height: 52px;
+    text-align: center;
+    color: #000000;
+  }
+  
+  h4{
+    position: absolute;
+    top: -0.5rem;
+    left: -3rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 120px;
+    text-align: center;
+    color: #ffffff;
+    padding: auto; 
+  
+  }
+  h4:hover{
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 1);
+    cursor: pointer;
+  }
+  .menu-bar{
+  width: 40%;
+  height: 100%;
+  left: 0px;
+  top: 114px;
+
+  background: #FFC107;
+  }
+
+  h3{
+    position: absolute;
+    width: 323.53px;
+    height: 74.58px;
+    right: 46%;
+    top: 50rem;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 110px;
+    line-height: 120px;
+  
+    
+    color: #FFFFFF;
+    
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  Box{
+    border: #000000;
+  
+  }
+  
+  Box:hover{
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 1);
+    border: #000000;
+    cursor: pointer;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  input[type=text],[type=password]{
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: #FDF5DF;
+  border: 1px solid #DDDDDD;
+  width: 352px;
+  height: 42px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15.6462px;
+  line-height: 23px;
+  color: #292F3F;
+  padding: 20px;
+  }
+  input[type=text],[type=password]:hover{
+    animation: BounceIn; 
+    animation-duration: 3s;
+  }
+  
+  label{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15.6462px;
+    line-height: 23px;
+    color: #292F3F;
+    text-align: left;
+  
+  }
+  .card{
+    
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 26px;
+  padding: 10px;
+  position: relative;
+  }
+  .form{
+    margin: 5rem;
+    
+  }
+  input[type=submit]{
+    width: 253px;
+    height: 53px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16.7638px;
+    line-height: 25px;
+    text-align: center;
+    position: inherit;
+    margin: 1rem;
+    color: #FFFFFF;
+    background: #292F3F;
+    border-radius: 15px;
+    padding: 10px;
+    object-position: 1020px;
+    position:relative; left: 8%;
+    border: none;
+  }
+  input[type=submit]:hover {
+    background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+    cursor: pointer;
+  }
+  h3:hover {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 1);
+    cursor: pointer;
+    animation: heartBeat; 
+    animation-duration: 2s;
+    
+  }
+  .groupSubmit{
+    margin: 1rem;
+  }
+  
+  .linkbtn{
+    width: 148px;
+    height: 20px;
+  
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    color: #292F3F;
+  }
+  .linkbtn:hover{
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    animation: headShake; 
+    animation-duration: 2s;
+  }
+  input[type=submit].btn1{
+    color: white;
+    background: #FFC107;
+    border-radius: 15px;
+  }
+  input[type=submit].btn1:hover{
+    background-image: linear-gradient(to right, #FFC107, #ffebaf);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+    border-radius: 15px;
+  }
+  .wrapper{   
+    display: grid;
+    grid-template-columns: 0.5fr 0.2fr;
+  }
+  .column1{
+    margin-left: 2rem;
+  }
+  .column2{
+    margin-left: 5rem;
+  }
+  
+  input[type=submit].btnAdd{
+    width: 170px;
+    height: 53px;
+    background: #292F3F;
+    border-radius: 15px;
+  }
+  input[type=submit].btnDel{
+    width: 90px;
+    height: 53px;
+    background: #292F3F;
+    border-radius: 15px;
+  }
+  input[type=submit].btnUp{
+    width: 90px;
+    height: 53px;
+    background: #292F3F;
+    border-radius: 15px;
+  }
+  table{
+    border: solid bold;
+    border-radius: 10px;
+  }
+  #tbl {
+    font-family: 'Poppins';
+    font-style: normal;
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 26px;
+    border: 7px solid;
+    
+  }
+  
+  #tbl td, #tbl th {
+    border: 2px solid #ffffff;
+    color:#000000;
+    padding: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    text-align: center;
+  }
+  
+  #tbl tr:nth-child(even){background-color: #FDF5DF;}
+  
+  #tbl tr:hover {background-color: #fffdbe;}
+  
+  #tbl th {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 40px;
+  
+    
+    /* identical to box height */
+  
+    text-align: center;
+  
+    color: #FFFFFF;
+    padding: 5px;
+    background-color: #DCAB17;
+  }
+  

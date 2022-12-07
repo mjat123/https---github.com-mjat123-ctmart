@@ -1,0 +1,41 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.container-page{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+.pages{
+    display:flex;
+    width: 400%;
+    box-sizing: border-box;
+}
+.page{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 10px;
+    transition: all 1s;
+}
+h1{
+    text-align: left;
+}
+.one{
+    background-color: blue;
+}
+.two{
+    background-color: brown;
+}
+.three{
+    background-color: blueviolet;
+}
+.four{
+    background-color: black;
+}
+

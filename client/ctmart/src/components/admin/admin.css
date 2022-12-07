@@ -1,0 +1,595 @@
+*{
+    padding: 0;
+    margin: 0;
+  }
+  .App {
+    align-items: center;
+    animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 0.5s;
+  }
+  
+  .my-element {
+    display: inline-block;
+    margin: 0.5rem;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 5s; /* don't forget to set a duration! */
+    
+  }
+  .logo-menubar{
+    width: 101px; 
+    padding: auto; 
+    margin-left: -10rem;
+  }
+  .App-header-landing {
+    background-image: radial-gradient( #FDF354, #FED12E);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    position: fixed;
+    bottom: 0;
+    background: radial-gradient( #FDF354, #FED12E);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  
+  }
+  video{
+    width: 2050px;
+    color: #ffebaf;
+    opacity: 0.5;
+    position: inline-block;
+    animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 2s;
+  }
+  video:hover{
+    opacity: 1;
+  }
+  section{
+    padding:0;
+    margin: 0;
+    left: -47.5%;
+    bottom: -2rem;
+  }
+  h5{
+    position: absolute;
+    top: 2.5rem;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 30px;
+    text-align: center;
+    color: #000000;
+  }
+  h5:hover{
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+  }
+  
+  Box{
+      width: 300;
+      height: 300;
+      color: #000000;
+      background-color: black;
+    }
+    Box:hover{
+      background-color: white;
+    }  
+  
+  
+  .App-header {
+    background-color: #FDF5DF;;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+    background-size: auto, cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+  }
+  .content {
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 20px;
+  
+  }
+  p{
+    font-family: 'Poppins';
+    font-style: italic;
+    font-weight: 500;
+    font-size: 12.6667px;
+    text-align: center;
+    color: #000000;
+  }
+  h1{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34.6667px;
+    line-height: 35px;
+    text-align: center;
+    color: #000000;
+  }
+  
+  h4{
+    position: absolute;
+    top: -0.5rem;
+    left: -3rem;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 40px;
+    line-height: 120px;
+    text-align: center;
+    color: #ffffff;
+    padding: auto; 
+  
+  }
+  h4:hover{
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 1);
+    cursor: pointer;
+  }
+  
+  Box{
+    border: #000000;
+  
+  }
+  
+  Box:hover{
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 1);
+    border: #000000;
+    cursor: pointer;
+  }
+  
+  .App-link {
+    color: #61dafb;
+  }
+  
+  @keyframes App-logo-spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  input[type=text],[type=password]{
+  box-sizing: border-box;
+  border-radius: 10px;
+  background: #FDF5DF;
+  border: 1px solid #DDDDDD;
+  width: 352px;
+  height: 42px;
+  font-family: 'Poppins';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15.6462px;
+  line-height: 23px;
+  color: #292F3F;
+  padding: 20px;
+  }
+  input[type=text],[type=password]:hover{
+    animation: BounceIn; 
+    animation-duration: 3s;
+  }
+  
+  label{
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15.6462px;
+    line-height: 23px;
+    color: #292F3F;
+    text-align: left;
+  
+  }
+  .card{
+    
+  background: #FFFFFF;
+  box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
+  border-radius: 26px;
+  padding: 10px;
+  position: relative;
+  }
+  .form{
+    margin: 5rem;
+    
+  }
+  input[type=submit]{
+    width: 253px;
+    height: 53px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16.7638px;
+    line-height: 25px;
+    text-align: center;
+    position: inherit;
+    margin: 1rem;
+    color: #FFFFFF;
+    background: #292F3F;
+    border-radius: 15px;
+    padding: 10px;
+    object-position: 1020px;
+    position:relative; left: 8%;
+    border: none;
+  }
+  input[type=submit]:hover {
+    background-image: linear-gradient(to right, #29323c, #485563, #2b5876, #4e4376);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+    cursor: pointer;
+  }
+  h3:hover {
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 1);
+    cursor: pointer;
+    animation: heartBeat; 
+    animation-duration: 2s;
+    
+  }
+  .groupSubmit{
+    margin: 1rem;
+  }
+  
+  .linkbtn{
+    width: 148px;
+    height: 20px;
+  
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 22px;
+    color: #292F3F;
+  }
+  .linkbtn:hover{
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    animation: headShake; 
+    animation-duration: 2s;
+  }
+  input[type=submit].btn1{
+    color: white;
+    background: #FFC107;
+    border-radius: 15px;
+  }
+  input[type=submit].btn1:hover{
+    background-image: linear-gradient(to right, #FFC107, #ffebaf);
+    box-shadow: 0 4px 15px 0 rgba(45, 54, 65, 0.75);
+    border-radius: 15px;
+  }
+  .wrapper{   
+    display: grid;
+    grid-template-columns: 0.5fr 0.2fr;
+  }
+  .column1{
+    margin-left: 2rem;
+  }
+  .column2{
+    margin-left: 5rem;
+  }
+  
+  input[type=submit].btnAdd{
+    width: 170px;
+    height: 53px;
+    background: #292F3F;
+    border-radius: 15px;
+  }
+  input[type=submit].btnDel{
+    width: 90px;
+    height: 53px;
+    background: #292F3F;
+    border-radius: 15px;
+  }
+  input[type=submit].btnUp{
+    width: 90px;
+    height: 53px;
+    background: #292F3F;
+    border-radius: 15px;
+  }
+  table{
+    border: solid bold;
+    border-radius: 10px;
+  }
+  #tbl {
+    font-family: 'Poppins';
+    font-style: normal;
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 26px;
+    border: 7px solid;
+    
+  }
+  
+  #tbl td, #tbl th {
+    border: 2px solid #ffffff;
+    color:#000000;
+    padding: 10px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 30px;
+    text-align: center;
+  }
+  
+  #tbl tr:nth-child(even){background-color: #FDF5DF;}
+  
+  #tbl tr:hover {background-color: #fffdbe;}
+  
+  #tbl th {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 40px;
+  
+    
+    /* identical to box height */
+  
+    text-align: center;
+  
+    color: #FFFFFF;
+    padding: 5px;
+    background-color: #DCAB17;
+  }
+  
+.admin-menu-bar{
+    background-color: #FFC107;
+    top: 0;
+    left:0;
+    opacity: 0;
+    height: 100%;
+    width: 24%;
+}
+.admin-menu-bar:hover{
+    background-color: #FFC107;
+    opacity: 1;
+    top: 0;
+    left:0;
+    width: 24%;
+    height: 100%;
+    animation: fadeInLeft; 
+    animation-duration: 0.1s; 
+}
+.admin-logo-label{
+    width: 115px;
+    height: 30.7px;
+    font-size: 30px;
+    top: 2.5rem; 
+    margin:2rem;
+    left: -0.5rem;
+    
+
+    color: #333333;
+}
+.admin-logo{
+    width: 75.55px;
+    top: -10rem; 
+    margin:2rem;
+    left: 40%;
+    width: 101px; 
+    padding: auto; 
+    margin-left: 2rem;
+}
+
+.admin-label1{
+  top: 14.5rem;
+  margin-left: 5rem;
+}
+.admin-label2{
+  top: 21.5rem;
+  margin-left: 5rem;
+}
+.admin-label3{
+  top: 26.5rem;
+  margin-left: 5rem;
+}
+.admin-label4{
+  top: 31.5rem;
+  margin-left: 5rem;
+}
+.admin-label{
+  top: 1.4rem;
+  margin-left: 13rem;
+}
+
+.tab1{
+  opacity: 0;
+  position: absolute;
+  width: 500px;
+  height: 75px;
+  top: 15rem;
+  left: -8rem;
+  background: rgba(253, 245, 223, 0.75);
+  border-radius: 0PX 20PX 20PX 0PX;
+}
+.tab1:hover{
+  opacity: 1;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+
+}
+.tab2{
+  opacity: 0;
+  position: absolute;
+  width: 500px;
+  height: 75px;
+  top: 20rem;
+  left: -8rem;
+  background: rgba(253, 245, 223, 0.75);
+  border-radius: 0PX 20PX 20PX 0PX;
+}
+.tab2:hover{
+  opacity: 1;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.tab3{
+  opacity: 0;
+  position: absolute;
+  width: 500px;
+  height: 75px;
+  top: 25rem;
+  left: -8rem;
+  background: rgba(253, 245, 223, 0.75);
+  border-radius: 0PX 20PX 20PX 0PX;
+}
+.tab3:hover{
+  opacity: 1;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.tab4{
+  opacity: 0;
+  position: absolute;
+  width: 500px;
+  height: 75px;
+  top: 30rem;
+  left: -8rem;
+  background: rgba(253, 245, 223, 0.75);
+  border-radius: 0PX 20PX 20PX 0PX;
+}
+.tab4:hover{
+  opacity: 1;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.dashb-box{
+  position: absolute;
+  width: 370px;
+  height: 216px;
+  background: rgba(41, 47, 63, 0.85);
+  border-radius: 5px;
+}
+.dashb-box:hover{
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.concertTab{
+  position: absolute;
+  left: 510px;
+  top: 2rem;
+}
+.feature1{
+  left: 588px;
+  top: 2rem;
+}
+.feature2{
+  left: 988px;
+  top: 2rem;
+}
+.feature3{
+  left: 1388px;
+  top: 2rem;
+}
+.feature5{
+  width: 1160px;
+  height: 199px;
+  left: 588px;
+  bottom: 2rem;
+}
+.feature5:hover{
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.concertTbl{
+  position: absolute;
+  width: 1480px;
+  height: 800px;
+  left: 0rem;
+  top: 3rem;
+  background: white;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 5px 5px 5px;
+}
+.tab-con-label1{
+  top: 0.5rem; 
+  left: 2.5rem; 
+  font-size: 23px;
+}
+.tab-con-label2{
+  top: 0.5rem; 
+  left: 0.5rem; 
+  font-size: 23px;
+}
+.tab-con-label3{
+  top: 0.5rem; 
+  left: 2rem; 
+  font-size: 23px;
+}
+.tab-con{
+  width: 200px;
+  height: 50px;
+  left: 0rem;
+  top: 0rem;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px 15px 0px 0px;
+  background-color: #DCAB17;
+  opacity: 0.9;
+}
+.tab-con:hover{
+  background-color: whitesmoke;
+}
+
+.tab-cus{
+  width: 200px;
+  height: 50px;
+  left: 13rem;
+  top: 0rem;
+  background: #DCAB17;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px 15px 0px 0px;
+}
+.tab-cus:hover{
+  background-color: #DCAB17;
+}
+.tab-acc{
+  width: 200px;
+  height: 50px;
+  left: 26rem;
+  top: 0rem;
+  background: #DCAB17;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px 15px 0px 0px;
+}
+.tab-acc:hover{
+  background-color: #fff;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.accountTbl{
+  position: absolute;
+  width: 1095px;
+  height: 120px;
+  left: 0rem;
+  top: 3rem;
+  background: black;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0px 5px 5px 5px;
+}
+.content-concert{
+  box-shadow: 0px 4px 4px 1px rgba(0, 0, 0, 0.25);
+  background: #292F3F;
+  border-radius: 5px;
+  padding: 10px;
+  width: 1400px;
+  height: 680px;
+  margin: 2rem;
+  position: relative;
+}
