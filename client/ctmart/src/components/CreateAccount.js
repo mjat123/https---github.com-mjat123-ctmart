@@ -24,7 +24,7 @@ function App() {
         <label>Password</label><br/>
         <input type="password" name="password" label="Password" placeholder='Enter Password'/><br/>
         <label>Name</label><br/>
-        <input type="text" name="fullname" label="fullname" placeholder='Enter Name'/><br/>
+        <input type="text" name="fullname" label="fullname" placeholder='Enter Full Name'/><br/>
         <label>Birthdate</label><br/>
         <input type="date" name="birthdate" label="birthdate" placeholder='Enter Birthdate'/><br/>
         <label>Age</label><br/>
