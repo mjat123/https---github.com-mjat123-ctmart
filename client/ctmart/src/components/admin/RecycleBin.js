@@ -80,18 +80,16 @@ function RecycleBinTable() {
 }
 
 
-function RecycleBin() {
+function AdminHP() {
   return (
+    <header className='App-header'>
   <div className='App-header'>
-    <div className='container-page'>      
-    <Avatar googleId="118096717852922241760" size="75" round={true} style={{top:'1.5rem', left: '120rem', position:'relative'}}/>
-      <h1 style={{fontFamily:'Poppins', textAlign: 'right', right: '10rem', position:'relative', top: '-1.5rem'}}>PINK JEAN</h1>
-      {RecycleBinTable()}</div>
+    <div className='container-page'>{RecycleBinTable()}</div>
     <AppBar position="static" className='admin-menu-bar' style={{backgroundColor: "#FFC107", position: "absolute", top: "0", left:'0px', width: '21%', height:'100%'}}>
-      <Container maxWidth="xl" style={{opacity:'1'}}>
-        <Toolbar disableGutters style={{opacity:'1'}}>
+      <Container maxWidth="xl">
+        <Toolbar disableGutters>
         <Box>
-          <input className='admin-logo' type="image" src="images/logo.png" alt="Submit"/>
+          <input className='admin-logo' type="image" src="/images/logo.png" alt="Submit"/>
           <h4 className='admin-logo-label'>CTMART</h4>
           <Link to={'/AdminHP'}>
           <h5 className='admin-label1' style={{opacity:'1'}}>DASHBOARD</h5>
@@ -105,15 +103,21 @@ function RecycleBin() {
           <h5 className='admin-label' style={{opacity:'1'}}>CONCERT</h5>
           </Box>
           </Link>
-          <Link to={'/Account'}>
-          <h5 className='admin-label3' style={{opacity:'1'}}>ACCOUNT</h5>
+          <Link to={'/Concert'}>
+          <h5 className='admin-label3' style={{opacity:'1'}}>TICKET</h5>
           <Box className='tab3'>
-          <h5 className='admin-label' style={{opacity:'1'}}>ACCOUNT</h5>
+          <h5 className='admin-label' style={{opacity:'1'}}>TICKET</h5>
+          </Box>
+          </Link>
+          <Link to={'/Account'}>
+          <h5 className='admin-label4' style={{opacity:'1'}}>CUSTOMER ACCOUNT</h5>
+          <Box className='tab4'>
+          <h5 className='admin-label' style={{opacity:'1'}}>CUSTOMER ACCOUNT</h5>
           </Box>
           </Link>
           <Link to={'/RecycleBin'}>
-          <h5 className='admin-label4' style={{opacity:'1'}}>RECYCLE BIN</h5>
-          <Box className='tab4'>
+          <h5 className='admin-label5' style={{opacity:'1'}}>RECYCLE BIN</h5>
+          <Box className='tab5'>
           <h5 className='admin-label' style={{opacity:'1'}}>RECYCLE BIN</h5>
           </Box>
           </Link>
@@ -121,8 +125,9 @@ function RecycleBin() {
         </Toolbar>
       </Container>
     </AppBar>
-  </div>
+    </div>
+  </header>
     
   );
 }
-export default RecycleBin;
+export default AdminHP;

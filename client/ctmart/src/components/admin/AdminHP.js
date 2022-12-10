@@ -50,15 +50,21 @@ function AdminHP() {
           <h5 className='admin-label' style={{opacity:'1'}}>CONCERT</h5>
           </Box>
           </Link>
-          <Link to={'/Account'}>
-          <h5 className='admin-label3' style={{opacity:'1'}}>ACCOUNT</h5>
+          <Link to={'/Concert'}>
+          <h5 className='admin-label3' style={{opacity:'1'}}>TICKET</h5>
           <Box className='tab3'>
-          <h5 className='admin-label' style={{opacity:'1'}}>ACCOUNT</h5>
+          <h5 className='admin-label' style={{opacity:'1'}}>TICKET</h5>
+          </Box>
+          </Link>
+          <Link to={'/Account'}>
+          <h5 className='admin-label4' style={{opacity:'1'}}>CUSTOMER ACCOUNT</h5>
+          <Box className='tab4'>
+          <h5 className='admin-label' style={{opacity:'1'}}>CUSTOMER ACCOUNT</h5>
           </Box>
           </Link>
           <Link to={'/RecycleBin'}>
-          <h5 className='admin-label4' style={{opacity:'1'}}>RECYCLE BIN</h5>
-          <Box className='tab4'>
+          <h5 className='admin-label5' style={{opacity:'1'}}>RECYCLE BIN</h5>
+          <Box className='tab5'>
           <h5 className='admin-label' style={{opacity:'1'}}>RECYCLE BIN</h5>
           </Box>
           </Link>

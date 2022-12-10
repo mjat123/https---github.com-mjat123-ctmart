@@ -43,7 +43,7 @@ function App() {
         <Route path='/ForgotPass' element={<ForgotPass /> }/>
         
 
-        <Route path='/CustomerHP' element={<CustomerHP /> }/>
+        <Route path='/CustomerHP/:username' element={<CustomerHP /> }/>
 
         <Route path='/BookConcert' element={<BookConcert /> }/>
         <Route path='/BookConcert/ProceedPayment' element={<ProceedPayment/> }/>
@@ -56,7 +56,7 @@ function App() {
         <Route path='/UpdateProfile/ConfirmPass' element={<ConfirmPass /> }/>
 
         
-        <Route path='/AdminHP' element={<AdminHP /> }/>
+        <Route path='/AdminHP/:username' element={<AdminHP /> }/>
         <Route path='/Concert' element={<Concert/> }/>
           <Route path='/Concert/UpdateConcert' element={<UpdateConcert/> }/>
           <Route path='/Concert/AddConcert' element={<AddConcert/> }/>
@@ -71,7 +71,7 @@ function App() {
         <Route path='/Performer/EditPerformer' element={<EditPerformer /> }/>
 
         <Route path='/Venue' element={<Venue/> }/>
-        <Route path='/Venue/EditVenue' element={<EditVenue /> }/>
+        <Route path='/Venue/EditVenue/:venueID' element={<EditVenue /> }/>
 
         </Routes>
       </Router>

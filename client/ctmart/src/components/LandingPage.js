@@ -8,6 +8,7 @@ function LandingPage() {
 
   return(
     <div className="App">
+      <div className='wrappers'>
       <div className='App-header-landing'>
              
       <Link to={'/Login'}>
@@ -16,7 +17,7 @@ function LandingPage() {
         </Link>
         </div>
 
-
+        </div>
     </div>
     
 
