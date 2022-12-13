@@ -44,7 +44,9 @@ function App() {
         <label>Password</label><br/>
         <input type="password" name="password" label="Password" placeholder='Enter Password' value={password} onChange={(e)=>setPassword(e.target.value)}/><br/>
         <label>Name</label><br/>
+
         <input type="text" name="fullname" label="fullname" placeholder='Enter Name' value={name} onChange={(e)=>setName(e.target.value)}/><br/>
+
         <label>Birthdate</label><br/>
         <input type="date" name="birthdate" label="birthdate" placeholder='Enter Birthdate' value={birthdate} onChange={(e)=>setBirthdate(e.target.value)}/><br/>
         <label>Age</label><br/>
