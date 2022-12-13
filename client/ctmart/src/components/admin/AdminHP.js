@@ -1,10 +1,11 @@
-import * as React from 'react';
+import React, {useEffect, useState} from 'react';
 import './admin.css';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import {Link, useNavigate, userNavigate} from 'react-router-dom';
+import RemoveCookie from '../../hook/RemoveCookie';
 function Dashboard() {
 
   return(
@@ -28,6 +29,11 @@ function Dashboard() {
 }
 
 function AdminHP() {
+  const setUname = (sessionStorage.getItem('pangalan niya')); 
+  const onLogout=async(e)=>{
+    sessionStorage.removeItem('username');
+    RemoveCookie('usrin');
+  }
   return (
     <header className='App-header'>
   <div className='App-header'>
@@ -36,7 +42,7 @@ function AdminHP() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
         <Box>
-          <input className='admin-logo' type="image" src="images/logo.png" alt="Submit"/>
+          <input className='admin-logo' type="image" src="/images/logo.png" alt="Submit"/>
           <h4 className='admin-logo-label'>CTMART</h4>
           <Link to={'/AdminHP'}>
           <h5 className='admin-label1' style={{opacity:'1'}}>DASHBOARD</h5>
@@ -66,6 +72,13 @@ function AdminHP() {
           <h5 className='admin-label5' style={{opacity:'1'}}>RECYCLE BIN</h5>
           <Box className='tab5'>
           <h5 className='admin-label' style={{opacity:'1'}}>RECYCLE BIN</h5>
+          </Box>
+          </Link>
+          <Link to={'/Login'} onClick={(e)=>onLogout(e)}>
+          <h5 className='admin-label6' style={{opacity:'1', top: '64rem'}}>{setUname}</h5>
+          <h5 className='admin-label6' style={{opacity:'1'}}>LOGOUT</h5>
+          <Box className='tab6'>
+          <h5 className='admin-label' style={{opacity:'1'}}>LOGOUT</h5>
           </Box>
           </Link>
           </Box>
