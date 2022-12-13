@@ -43,6 +43,7 @@ function VideoPage(){
 
 
 function CustomerHP() {
+  
   return (
     <header className='App-header'>
   <div className='App-header'>
@@ -52,8 +53,8 @@ function CustomerHP() {
       <Container maxWidth="xl">
         <Toolbar disableGutters>
         <Box>
-          <input className='logo-menubar' type="image" src="images/logo.png" alt="Submit"/>
-          <Link to={'/CustomerHP'}><h4>CTMART</h4></Link>
+          <input className='logo-menubar' type="image" src="/images/logo.png" alt="Submit"/>
+          <Link to={'/CustomerHP'}><h4>CTMART </h4></Link>
           <Link to={'/BookConcert'}>
           <h5 className='label1' style={{ right: "27rem"}}>Book Concert</h5>
           </Link>

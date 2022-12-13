@@ -9,6 +9,9 @@
   align-items: center;
   animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
   animation-duration: 0.5s;
+  z-index: 2;
+  white-space: nowrap;
+  
 }
 
 .my-element {
@@ -19,6 +22,11 @@
   animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
   animation-duration: 5s; /* don't forget to set a duration! */
   
+}
+#wrappers {
+  margin-left:auto;
+  margin-right:auto;
+  width:960px;
 }
 .logo-menubar{
   width: 101px; 
@@ -34,12 +42,14 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   background: radial-gradient( #FDF354, #FED12E);
   color: #f1f1f1;
   width: 100%;
   padding: 20px;
+  z-index: 2;
+  white-space: nowrap;
 
 }
 video{
@@ -97,6 +107,7 @@ Box{
   font-size: calc(10px + 2vmin);
   color: white;
   background-size: auto, cover;
+  
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;

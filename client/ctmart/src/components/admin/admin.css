@@ -421,10 +421,20 @@ border-radius: 10px;
   top: 31.5rem;
   margin-left: 5rem;
 }
+.admin-label5{
+  top: 36rem;
+  margin-left: 5rem;
+}
+.admin-label6{
+  top: 68rem;
+  margin-left: 5rem;
+}
 .admin-label{
   top: 1.4rem;
   margin-left: 13rem;
 }
+
+
 
 .tab1{
   opacity: 0;
@@ -483,6 +493,36 @@ border-radius: 10px;
   border-radius: 0PX 20PX 20PX 0PX;
 }
 .tab4:hover{
+  opacity: 1;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.tab5{
+  opacity: 0;
+  position: absolute;
+  width: 500px;
+  height: 75px;
+  top: 34.5rem;
+  left: -8rem;
+  background: rgba(253, 245, 223, 0.75);
+  border-radius: 0PX 20PX 20PX 0PX;
+}
+.tab5:hover{
+  opacity: 1;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+.tab6{
+  opacity: 0;
+  position: absolute;
+  width: 500px;
+  height: 75px;
+  top: 66.4rem;;
+  left: -8rem;
+  background: rgba(253, 245, 223, 0.75);
+  border-radius: 0PX 20PX 20PX 0PX;
+}
+.tab6:hover{
   opacity: 1;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.5);
   cursor: pointer;
