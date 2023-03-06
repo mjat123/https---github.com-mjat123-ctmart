@@ -31,6 +31,8 @@ import AddConcert from './components/admin/AddConcert.js';
 
 
 function App() {
+  const setUname = (sessionStorage.getItem('username'));
+  const setFname = (sessionStorage.getItem('firstname'));
   return (
     <div className='App'>
       <title style={{fontFamily: 'Poppins'}}>CTMART</title>
@@ -43,7 +45,7 @@ function App() {
         <Route path='/ForgotPass' element={<ForgotPass /> }/>
         
 
-        <Route path='/CustomerHP/:username' element={<CustomerHP /> }/>
+        <Route path='/CustomerHP' element={<CustomerHP /> }/>
 
         <Route path='/BookConcert' element={<BookConcert /> }/>
         <Route path='/BookConcert/ProceedPayment' element={<ProceedPayment/> }/>
@@ -56,11 +58,11 @@ function App() {
         <Route path='/UpdateProfile/ConfirmPass' element={<ConfirmPass /> }/>
 
         
-        <Route path='/AdminHP/:username' element={<AdminHP /> }/>
+        <Route path='/AdminHP' element={<AdminHP /> }/>
         <Route path='/Concert' element={<Concert/> }/>
-          <Route path='/Concert/UpdateConcert' element={<UpdateConcert/> }/>
+          <Route path='/Concert/UpdateConcert/:concertID' element={<UpdateConcert/> }/>
           <Route path='/Concert/AddConcert' element={<AddConcert/> }/>
-        <Route path='/Account' element={<Account /> }/>
+        <Route path='/Account'   element={<Account /> }/>
 
         <Route path='/RecycleBin' element={<RecycleBin /> }/>
         <Route path='/RecycleBin/ConcertTable' element={<RecConcert /> }/>
@@ -68,7 +70,7 @@ function App() {
 
         
         <Route path='/Performer' element={<Performer/> }/>
-        <Route path='/Performer/EditPerformer' element={<EditPerformer /> }/>
+        <Route path='/Performer/EditPerformer/:performerID' element={<EditPerformer /> }/>
 
         <Route path='/Venue' element={<Venue/> }/>
         <Route path='/Venue/EditVenue/:venueID' element={<EditVenue /> }/>

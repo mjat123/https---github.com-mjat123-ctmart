@@ -1,36 +1,70 @@
-import React, { useState } from 'react';
-import './App.css';
-import {Link, useNavigate, userNavigate} from 'react-router-dom';
+
+import React, {useEffect, useState} from 'react';
+import {Link, useNavigate, useParams, userNavigate} from 'react-router-dom';
+import axios from 'axios';
+import RemoveCookie from '../hook/RemoveCookie';
 
 function App() {
 
-  const[username,setUsername] = useState('')
-  const[password,setPassword]= useState('')
-  const[name,setName] = useState('')
-  const[birthdate,setBirthdate]= useState('')
-  const[age,setAge] = useState('')
-  const[email,setEmail]= useState('')
-  const[type,setType]= useState('C')
-  
-
   let history = useNavigate();
+  const{customerID}=useParams()
+  const[customers,setCustomers] = useState([]);
+  const[create_account, setCreate_Account] = useState({
+    username:"",
+    password:"",
+    firstname:"",
+    lastname:"",
+    acc_type:"C"
+  })
+  const[create_customer, setCreate_Customer] = useState({
+    // username:"",
+    birthdate:"",
+    age:"",
+    email:""
+  })
 
-  const handleSubmit =(e) => {
+  const{username,password,firstname,lastname,acc_type}=create_account
+  const{birthdate,age,email}=create_customer
+
+  const onInputChange=(e)=>{
+    setCreate_Customer({ ...create_customer,[e.target.name]: e.target.value});
+    setCreate_Account({ ...create_account,[e.target.name]: e.target.value});
+  };
+
+  const handleSubmit=async(e)=>{
     e.preventDefault();
-    const account={username,password,name,birthdate,age,email,type}
-    fetch("http://localhost:8081/account/postAccount",{
-      method: "POST",
-      headers: {"Content-Type":"application/json"},
-      body:JSON.stringify(account)
-    }).then(()=>{
-      console.log("added")
-      alert([username]+" successfully added")
-      history("/Login");
-    })
-    
-    [type]=setType(e.target.value)
+    try{
 
-}
+      if((username).length!=0 && 
+        (password).length!=0 &&
+        (firstname).length!=0 &&
+        (lastname).length!=0 &&
+        (birthdate).length!=0 &&
+        (age).length!=0 &&
+        (email).length!=0 
+          
+        ){
+
+        const resultacc= await axios.post("http://localhost:8081/account/postAccount",create_account);
+        RemoveCookie('usrin');
+        console.log((resultacc.data));
+        const resultcus = await axios.post("http://localhost:8081/customer/postCustomer",create_customer);
+        RemoveCookie('usrin');
+        console.log((resultcus.data));
+        alert([username ]+" successfully added")
+        history("/Login");
+      }else{alert("Missing Field");}
+
+    }catch(e){
+      alert([username]+" Not Valid.");
+
+    }
+  }
+  const cancelSubmit=async(e)=>{
+    e.preventDefault();
+    RemoveCookie('usrin');
+    history("/Login");
+  }
 
   return (
     <header className='App-header'>
@@ -40,21 +74,21 @@ function App() {
       <h1 style={{fontFamily:'Poppins'}}>Create Account</h1>
       
         <label>Username</label><br/>
-        <input type="text" name="username" label="Username" placeholder='Enter Username' value={username} onChange={(e)=>setUsername(e.target.value)} /><br/>
+        <input type="text" name="username" label="Username" placeholder='Enter Username' value={username} onChange={(e)=>onInputChange(e)} required /><br/>
         <label>Password</label><br/>
-        <input type="password" name="password" label="Password" placeholder='Enter Password' value={password} onChange={(e)=>setPassword(e.target.value)}/><br/>
-        <label>Name</label><br/>
-
-        <input type="text" name="fullname" label="fullname" placeholder='Enter Name' value={name} onChange={(e)=>setName(e.target.value)}/><br/>
-
+        <input type="password" name="password" label="Password" placeholder='Enter Password' value={password} onChange={(e)=>onInputChange(e)} required/><br/>
+        <label>Firstname</label><br/>
+        <input type="text" name="firstname" placeholder='Enter Firstname' value={firstname} onChange={(e)=>onInputChange(e)} required/><br/>
+        <label>Lastname</label><br/>
+        <input type="text" name="lastname" placeholder='Enter Lastname' value={lastname} onChange={(e)=>onInputChange(e)} required/><br/>
         <label>Birthdate</label><br/>
-        <input type="date" name="birthdate" label="birthdate" placeholder='Enter Birthdate' value={birthdate} onChange={(e)=>setBirthdate(e.target.value)}/><br/>
+        <input type="date" name="birthdate" placeholder='Enter Birthdate' value={birthdate} onChange={(e)=>onInputChange(e)} required/><br/>
         <label>Age</label><br/>
-        <input type="text" name="age" label="age" placeholder='Enter Age' value={age} onChange={(e)=>setAge(e.target.value)}/><br/>
+        <input type="text" name="age" placeholder='Enter Age' value={age} onChange={(e)=>onInputChange(e)} required/><br/>
         <label>Email</label><br/>
-        <input type="text" name="email" label="email" placeholder='Enter Email' value={email} onChange={(e)=>setEmail(e.target.value)}/><br/><br/>
-        <input type="submit" name="type" label="type" onClick={(e)=>handleSubmit(e)}/>
-
+        <input type="text" name="email" label="email" placeholder='Enter Email' value={email} onChange={(e)=>onInputChange(e)} required/><br/><br/>
+        <input type="submit" value="Submit" onClick={(e)=>handleSubmit(e)} style={{width:"10rem"}}/>
+        <input type="submit" value="Cancel" onClick={(e)=>cancelSubmit(e)} className="btnDel" />
       </div>
       </div>
     </div>

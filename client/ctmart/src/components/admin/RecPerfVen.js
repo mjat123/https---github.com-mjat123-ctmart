@@ -1,11 +1,124 @@
-import * as React from 'react';
+import React, {useEffect, useState} from 'react';
+import axios from 'axios';
 import './admin.css';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import {Link, useNavigate, userNavigate} from 'react-router-dom';
+import {Link, useNavigate, useParams} from 'react-router-dom';
 import Avatar from 'react-avatar';
+
+function VenueBin(){
+  let history = useNavigate();
+  const{venueID}=useParams()
+  const[venues,setVenue] = useState([]);
+
+  const[venue_isdeleted] = useState({
+    isdeleted:"0"
+  })
+  const{isdeleted}=venue_isdeleted
+
+  const onSubmitDelete=async(venueID)=>{
+    await axios.put(`http://localhost:8081/venue/putVenueisdeleted/${venueID}`,venue_isdeleted)
+    console.log((venueID))
+    loadVenue(); 
+    history("/Venue");
+  }
+
+  useEffect(()=>{
+    loadVenue();
+  },[]);
+
+  const loadVenue=async()=>{
+    const result = await axios.get("http://localhost:8081/venue/getIsdeleted/?isdeleted=1");
+    setVenue(result.data);
+  }
+  return(
+    <div>
+    <h1 style={{fontFamily:'Poppins', textAlign: 'left', marginLeft: '2rem', position: 'relative', marginTop:'-1rem'}}>Venue</h1>
+                <div className='content-rec' style={{position:"relative", height:'auto', width:'auto'}}>
+                <table id="tbl" >
+                    <tr>
+                        <th>id</th>
+                        <th>Venue</th>
+                        <th>Capacity</th>
+                        <th></th>
+                    </tr>
+                    {
+            venues.map((venue,index)=>(
+                <tr>
+                
+                <td>{venue.venueID}</td>
+                <td>{venue.venue_name}</td>
+                <td>{venue.capacity}</td>
+                <td>
+                  <input className="btnUp" type="submit" name="btnUpdate" label="btnUpdate" value="Restore" onClick={()=>onSubmitDelete(venue.venueID)} />
+                  </td>
+              </tr>
+            ))
+        }     
+                </table>
+                </div>
+                </div>
+  )
+}
+
+function PerfomerBin(){
+  
+
+  let history = useNavigate();
+  const{performerID}=useParams()
+  const[performers,setPerformer] = useState([]);
+
+  const[performer_isdeleted] = useState({
+    isdeleted:"0"
+  })
+  const{isdeleted}=performer_isdeleted
+
+  const onSubmitDelete=async(performerID)=>{
+    await axios.put(`http://localhost:8081/performer/putPerformerisdeleted/${performerID}`,performer_isdeleted)
+    console.log((performerID))
+    loadPerformer(); 
+    history("/Performer");
+  }
+
+  useEffect(()=>{
+    loadPerformer();
+  },[]);
+  const loadPerformer=async()=>{
+    const result = await axios.get("http://localhost:8081/performer/getIsdeleted/?isdeleted=1");
+    setPerformer(result.data);
+  }
+  
+  return(
+    <div>
+    <h1 style={{fontFamily:'Poppins', textAlign: 'left', marginLeft: '2rem', position: 'relative', marginTop:'-1rem'}}>Performer</h1>
+    <div className='content-rec' style={{position:"relative", height:'auto'}}>
+    <table id="tbl" >
+        <tr>
+            <th>id</th>
+            <th>Performer</th>
+            <th>Performer Type</th>
+            <th></th>
+        </tr>
+                                {
+            performers.map((performer,index)=>(
+                <tr>
+                
+                <td>{performer.performerID}</td>
+                <td>{performer.performer_name}</td>
+                <td>{performer.performer_type}</td>
+                <td>
+                <input className="btnUp" type="submit" name="btnUpdate" label="btnUpdate" value="Restore" onClick={()=>onSubmitDelete(performer.performerID)} />
+                </td>
+              </tr>
+            ))
+        }     
+                </table>
+                </div>
+                </div>
+  )
+}
 
 function RecycleBinTable() {
 
@@ -14,7 +127,7 @@ function RecycleBinTable() {
     <div><br/>
     <h1 style={{fontFamily:'Poppins', textAlign: 'center'}}>CONCERT</h1>
       <div className='concertTab' style={{top: '8rem'}}>
-      <Box className='concertTbl tab-con'style={{width:'20rem'}}>
+      <Box className='concertTbl tab-con'style={{width:'20rem' , position:'relative'}}>
           <Link to={'/RecycleBin'}><h5 className='tab-con-label1'>Customer Account</h5></Link>
         </Box>
         <Box className='concertTbl tab-acc'style={{width:'15rem', left: '20.4rem'}}>
@@ -23,54 +136,15 @@ function RecycleBinTable() {
         <Box className='concertTbl tab-cus'style={{backgroundColor:'#FFC107', width:'20rem', left: '35.8rem'}}>
           <Link to={'/RecycleBin/PerfVenTable'}><h5 className='tab-con-label3'>Performer & Venue</h5></Link>
         </Box>
-        <Box className='concertTbl'>
+        <Box className='concertTbl' style={{position:"relative", height:'auto', width:'auto', marginTop:'-3rem'}}>
         <br></br>
         <div className='wrapper'>
-            <div className='column1'>
-            <h1 style={{fontFamily:'Poppins', textAlign: 'left', marginLeft: '2rem', position: 'absolute', marginTop:'-1rem'}}>Performer</h1>
-                <div className='content-rec'>
-                <table id="tbl" >
-                    <tr>
-                        <th>id</th>
-                        <th>Performer</th>
-                        <th>Performer Type</th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>00001</td>
-                        <td>Markovian</td>
-                        <td>Singer</td>
-                        <td>
-                        <Link to={'/Performer'}>
-                        <input className="btnDel" type="submit" name="btnDel" label="btnDel" value="Restore"/>
-                        </Link>
-                        </td>
-                        </tr>      
-                </table>
-                </div>
+            <div className='column1' style={{position:"relative"}}>
+            {PerfomerBin()}
                 </div>
                 <div className='column2' style={{position:"relative", left: "-1%"}}>
-                <h1 style={{fontFamily:'Poppins', textAlign: 'left', marginLeft: '2rem', position: 'absolute', marginTop:'-1rem'}}>Venue</h1>
-                <div className='content-rec'>
-                <table id="tbl" >
-                    <tr>
-                        <th>id</th>
-                        <th>Venue</th>
-                        <th>Capacity</th>
-                        <th></th>
-                    </tr>
-                    <tr>
-                        <td>00001</td>
-                        <td>SRP</td>
-                        <td>2000</td>
-                        <td>
-                        <Link to={'/Venue'}>
-                        <input className="btnDel" type="submit" name="btnDel" label="btnDel" value="Restore"/>
-                        </Link>
-                        </td>
-                        </tr>      
-                </table>
-                </div>
+                
+                {VenueBin()}
             </div>
 
         </div>
@@ -96,7 +170,7 @@ function RecycleBin() {
       <Container maxWidth="xl" style={{opacity:'1'}}>
         <Toolbar disableGutters style={{opacity:'1'}}>
         <Box>
-          <input className='admin-logo' type="image" src="images/logo.png" alt="Submit"/>
+          <input className='admin-logo' type="image" src="/images/logo.png" alt="Submit"/>
           <h4 className='admin-logo-label'>CTMART</h4>
           <Link to={'/AdminHP'}>
           <h5 className='admin-label1' style={{opacity:'1'}}>DASHBOARD</h5>

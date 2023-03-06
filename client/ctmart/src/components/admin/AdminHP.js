@@ -6,6 +6,7 @@ import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
 import {Link, useNavigate, userNavigate} from 'react-router-dom';
 import RemoveCookie from '../../hook/RemoveCookie';
+import { all } from 'axios';
 function Dashboard() {
 
   return(
@@ -29,9 +30,11 @@ function Dashboard() {
 }
 
 function AdminHP() {
-  const setUname = (sessionStorage.getItem('pangalan niya')); 
+  const setUname = (sessionStorage.getItem('username'));
+  const setFname = (sessionStorage.getItem('firstname'));
   const onLogout=async(e)=>{
-    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('username')
+    sessionStorage.removeItem('firstname');
     RemoveCookie('usrin');
   }
   return (
@@ -74,8 +77,8 @@ function AdminHP() {
           <h5 className='admin-label' style={{opacity:'1'}}>RECYCLE BIN</h5>
           </Box>
           </Link>
+          <h5 className='admin-label6' style={{opacity:'1', top: '64rem'}}>{setFname}</h5>
           <Link to={'/Login'} onClick={(e)=>onLogout(e)}>
-          <h5 className='admin-label6' style={{opacity:'1', top: '64rem'}}>{setUname}</h5>
           <h5 className='admin-label6' style={{opacity:'1'}}>LOGOUT</h5>
           <Box className='tab6'>
           <h5 className='admin-label' style={{opacity:'1'}}>LOGOUT</h5>

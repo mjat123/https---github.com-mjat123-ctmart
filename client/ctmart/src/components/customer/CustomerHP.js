@@ -10,6 +10,7 @@ import video2 from './assets/ben&ben.mp4';
 import video3 from './assets/multitude.mp4';
 import video4 from './assets/sarah.mp4';
 import SliderPage from 'react-slider-page';
+import RemoveCookie from '../../hook/RemoveCookie';
 
 function VideoPage(){
   return(
@@ -43,7 +44,18 @@ function VideoPage(){
 
 
 function CustomerHP() {
-  
+  const setFname = (sessionStorage.getItem('firstname'));
+  const onLogout=async(e)=>{
+    sessionStorage.removeItem('accountID');
+    sessionStorage.removeItem('customerID');
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('firstname');
+    sessionStorage.removeItem('lastname');
+    sessionStorage.removeItem('birthdate');
+    sessionStorage.removeItem('age'); 
+    sessionStorage.removeItem('email');
+    RemoveCookie('usrin');
+  }
   return (
     <header className='App-header'>
   <div className='App-header'>
@@ -55,6 +67,7 @@ function CustomerHP() {
         <Box>
           <input className='logo-menubar' type="image" src="/images/logo.png" alt="Submit"/>
           <Link to={'/CustomerHP'}><h4>CTMART </h4></Link>
+          <h6 className='label1' style={{ right: "60rem", top:" 2.3rem", position: "absolute", fontSize: "30px"}}>{setFname}</h6>
           <Link to={'/BookConcert'}>
           <h5 className='label1' style={{ right: "27rem"}}>Book Concert</h5>
           </Link>
@@ -64,7 +77,7 @@ function CustomerHP() {
           <Link to={'/UpdateProfile'}>
           <h5 className='label1' style={{ right: "-2rem"}}>Update Profile</h5>
           </Link>
-          <Link to={'/'}>
+          <Link to={'/'} onClick={(e)=>onLogout(e)}>
           <h5 className='label1' style={{ right: "-9.3rem"}}>Logout</h5>
           </Link>
           </Box>

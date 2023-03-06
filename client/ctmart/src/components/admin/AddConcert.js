@@ -1,25 +1,25 @@
-import * as React from 'react';
+import React, {useEffect, useState}  from 'react';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import {Link, useNavigate, userNavigate} from 'react-router-dom';
+import {Link, useNavigate, useParams, userNavigate} from 'react-router-dom';
 import Avatar from 'react-avatar';
+import axios from 'axios';  
+import SetCookie from '../../hook/SetCookie';
+
 function ConcertCon() {
 
   return(
     <header className='App-header'>
     <div>
-    <h1 style={{fontFamily:'Poppins', textAlign: 'centar'}}>CONCERT</h1>
+    <h1 style={{fontFamily:'Poppins', textAlign: 'center'}}>CONCERT</h1>
       <div className='concertTab' style={{top: '8rem'}}>
 
       <Box className='concertTbl tab-con'>
         <Link to={'/Concert'}><h5 className='tab-con-label1'>ViewTable</h5></Link>
       </Box>
-      
-      <Box className='concertTbl tab-acc'>
-        <Link to={'/Concert/UpdateConcert'}><h5 className='tab-con-label2'>UpdateConcert</h5></Link>
-      </Box>
+
       <Box className='concertTbl tab-cus' style={{backgroundColor:'#FFC107'}}>
         <Link to={'/Concert/AddConcert'}><h5 className='tab-con-label3'>AddConcert</h5></Link>
       </Box>
@@ -34,6 +34,61 @@ function ConcertCon() {
 )
 }
 function AddConcert() {
+  let history = useNavigate();
+  const[performers,setPerformer] = useState([]);
+  const[venues,setVenue] = useState([]);
+  const{concertID}=useParams()
+  const[concerts,setConcert] = useState([]);
+  const[create_concert, setCreate_concert] = useState({
+    concert_name:"",
+    performer:"",
+    venue:"",
+    concert_date:"",
+    concert_time:"",
+    ticket_id:""
+  })
+  const[concert_isdeleted] = useState({
+    isdeleted:"1"
+  })
+  const{isdeleted}=concert_isdeleted
+  const{concert_name, performer, venue, concert_date, concert_time,ticket_id}=create_concert
+  useEffect(()=>{
+    loadPerformer();
+    loadVenue();
+  },[]);
+
+  const loadPerformer=async()=>{
+    const res1 = await axios.get(`http://localhost:8081/performer/getIsdeleted/?isdeleted=0`);
+    setPerformer(res1.data);
+    console.log((res1.data));
+  }
+  const loadVenue=async()=>{
+    const res = await axios.get("http://localhost:8081/venue/getIsdeleted/?isdeleted=0");
+    setVenue(res.data);
+    console.log((res.data));
+  }
+  const onInputChange=(e)=>{
+    setCreate_concert({ ...create_concert,[e.target.name]: e.target.value});
+  };
+
+  const onSubmit=async(e)=>{
+    e.preventDefault();
+    try{
+
+      if([create_concert].length!=0){
+
+        const result = await axios.post("http://localhost:8081/concert/postConcert",create_concert)
+        SetCookie('usrin', JSON.stringify(result.data));
+        console.log((result.data));
+        // alert([concert_name]+" successfully added")
+        window.location.reload();
+        history("/Concert");
+      }else{alert("Missing Field");}
+
+    }catch(e){
+      alert([concert_name]+" Not Valid.");
+    }
+  }
 
   return(
 
@@ -42,31 +97,33 @@ function AddConcert() {
         <div className='wrapper' style={{margin:"2rem",marginTop:"0rem"}}>
           <div className='column1'>
           <label>Concert Name</label><br/>
-          <input type="text" name="concert_name" label="concert_name" placeholder='Enter Concert Name'/><br/>
+          <input type="text" name="concert_name" label="concert_name" placeholder='Enter Concert Name' value={concert_name} onChange={(e)=>onInputChange(e)} /><br/>
           <label>Performer</label><br/>
-          <select name="perfomrID" id="performerID">
-            <option value="perf1">Volvo</option>
-            <option value="perf2">Saab</option>
-            <option value="perf3">Opel</option>
-            <option value="perf4">Audi</option>
+          <select name="performer" value={performer} onChange={(e)=>onInputChange(e)}> 
+          {
+            performers.map((performer,index)=>(
+              
+            <option value={performer.performer_name}>{performer.performer_name}</option>
+          ))}
           </select><br/>
           <label>Venue</label><br/>
-          <select name="venueID" id="venueID">
-            <option value="ven1">Volvo</option>
-            <option value="ven2">Saab</option>
-            <option value="ven3">Opel</option>
-            <option value="ven4">Audi</option>
+          <select name="venue" value={venue} onChange={(e)=>onInputChange(e)}>
+          {
+            venues.map((venue,index)=>(
+              
+            <option value={venue.venue_name}>{venue.venue_name}</option>
+          ))}
           </select><br/>
           <label>Birthday</label><br/>
-          <input type="date" id="birthday" name="birthday" placeholder='Birthday'/><br/>
+          <input type="date" name="concert_date" value={concert_date} onChange={(e)=>onInputChange(e)}/><br/>
           <label>Time</label><br/>
-          <input type="time" id="time" name="time" placeholder='Time'/><br/>
+          <input type="time" name="concert_time" value={concert_time} onChange={(e)=>onInputChange(e)}/><br/>
           <label>Ticket</label><br/>
-          <select name="ticketID" id="ticketID">
-            <option value="type1">10</option>
-            <option value="type2">12</option>
-            <option value="type3">14</option>
-            <option value="type">15</option>
+          <select name="ticket_id" value={ticket_id} onChange={(e)=>onInputChange(e)}>
+            <option value="10">10</option>
+            <option value="12">12</option>
+            <option value="13">14</option>
+            <option value="14">15</option>
           </select><br/>
           </div>
           <div className='column2' style={{position:"relative", left: "-1%", marginRight:"2rem"}}>
@@ -94,8 +151,9 @@ function AddConcert() {
   </table>
           </div>
           <Link to={'/Concert'}>
-          <input style={{position:"relative", left: "65%", width:"253px"}} className="btnAdd" type="submit" name="btnUpProf" label="btnUpProf" value="Add Concert"/><br/>
+          <input style={{position:"relative", left: "65%", width:"253px"}} className="btnAdd" type="submit" name="btnUpProf" label="btnUpProf" value="Add Concert" onClick={(e)=>onSubmit(e)}/><br/>
           </Link>
+        
         </div>
       </div>  
 )

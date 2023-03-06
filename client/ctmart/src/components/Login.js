@@ -9,9 +9,10 @@ import SetCookie from '../hook/SetCookie';
 
 function Login() {
 
+  //initializing
   let history = useNavigate();
-
   const[accounts,setAccount] = useState([]);
+  const[accountCus,setCustomer] = useState([]);
   const[accountlogin,setAccountlogin] = useState({
     username:Cookies.get('username'),
     password:""
@@ -26,21 +27,42 @@ function Login() {
   }
   const onSubmit=async(e)=>{
     e.preventDefault();
+    //setting a restrictions
     try{
       const result = await axios.get(`http://localhost:8081/account/getAccount?username=${username}`);
+      const resultCustomer = await axios.get(`http://localhost:8081/customer/getCustomer?username=${username}`);
       setAccount(result.data);
+      setCustomer(resultCustomer.data);
       SetCookie('usrin', JSON.stringify(result.data));
       console.log(localStorage.getItem(accountlogin.username)) 
       if((result.data)!=null){
         if((result.data.password)==[password]){
           if((result.data.acc_type)=="C"){
-            history(`/CustomerHP/${accountlogin.username}`);
+            if((resultCustomer.data.isdeleted)==1){
+              alert("User " + [username]+ " has been blocked by the admin.");
+            }else{
+              const res = await axios.get(`http://localhost:8081/customer/getCustomer?username=${username}`);
+              sessionStorage.setItem('accountID',[result.data.accountID]);
+              sessionStorage.setItem('username',[result.data.username]);
+              sessionStorage.setItem('firstname',[result.data.firstname]);
+              sessionStorage.setItem('lastname',[result.data.lastname]);
+              sessionStorage.setItem('customerID',[res.data.customerID]);
+              sessionStorage.setItem('birthdate',[res.data.birthdate]);
+              sessionStorage.setItem('age',[res.data.age]); 
+              sessionStorage.setItem('email',[res.data.email]);
+              sessionStorage.getItem('username',[res.data.username]);
+              const getFirstname = sessionStorage.getItem('firstname',[result.data.firstname]);
+              history(`/CustomerHP`);
+            }
+
         }else if((result.data.acc_type)=="A"){
-          history(`/AdminHP/${accountlogin.username}`);
-          sessionStorage.setItem('pangalan niya',[result.data.firstname]);
+          const setUname = sessionStorage.setItem('username',[result.data.username]);
+          const setfname = sessionStorage.setItem('firstname',[result.data.firstname]);
+          const getFirstname = sessionStorage.getItem('firstname',[result.data.firstname]);
+          history(`/AdminHP`);
         }
         }else{alert("Incorrect Password");}
-      }else{alert("User" + [username]+ "does not exist!");}
+      }else{alert("Invalid input " + [username]+ " does not exist!");}
       
     }catch(e){
       console.log("incorrect"+setAccount());
@@ -55,7 +77,7 @@ function Login() {
     <div className="App">
       <div className='card'>
       <div className='form'>
-      <h1 style={{fontFamily:'Poppins'}}>Login</h1>
+      <h1 style={{fontFamily:'Poppins', content:"center"}}>Login</h1>
       
         <label>Username</label><br/>
         <input type="text" name="username" label="Username" placeholder='Enter Username' value={username} onChange={(e)=>onInputChange(e)} required /><br/>

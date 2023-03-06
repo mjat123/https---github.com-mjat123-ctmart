@@ -3,7 +3,9 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
-import {Link, useNavigate, userNavigate} from 'react-router-dom';
+import {Link, useNavigate, userNavigate, useParams} from 'react-router-dom';
+import RemoveCookie from '../../hook/RemoveCookie';
+import axios from 'axios';
 function Prompt() {
 
   return(
@@ -24,7 +26,6 @@ function Prompt() {
                 <th>ConcertID</th>
                 <th>Concert Name</th>
                 <th>Venue</th>
-                <th>Performer</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Price</th>
@@ -32,13 +33,12 @@ function Prompt() {
 
               </tr>
               <tr>
-                <td>ConcertID</td>
-                <td>Concert Name</td>
-                <td>Venue</td>
-                <td>Performer</td>
-                <td>Date</td>
-                <td>Time</td>
-                <td>Price</td>
+              <td>3</td>
+                <td>Aurora Festival</td>
+                <td>City De Mare, SRP</td>
+                <td>11/19/2022</td>
+                <td>3:00 PM</td>
+                <td>1000</td>
 
                 <td>
                   <Link to={'/CheckReservation'}>
@@ -46,20 +46,7 @@ function Prompt() {
                   </Link>
                 </td>
               </tr>  
-              <tr>
-                <td>ConcertID</td>
-                <td>Concert Name</td>
-                <td>Venue</td>
-                <td>Performer</td>
-                <td>Date</td>
-                <td>Time</td>
-                <td>Price</td>
-                <td>
-                  <Link to={'/CheckReservation'}>
-                  <input className="btnDel" type="submit" name="btnDel" label="btnDel" value="Restore"/>
-                  </Link>
-                </td>
-                </tr>    
+            
               </table>
                    </div>
                    </Box>
@@ -71,6 +58,17 @@ function Prompt() {
 
 
 function CheckRes() {
+  const onLogout=async(e)=>{
+    sessionStorage.removeItem('accountID');
+    sessionStorage.removeItem('customerID');
+    sessionStorage.removeItem('username');
+    sessionStorage.removeItem('firstname');
+    sessionStorage.removeItem('lastname');
+    sessionStorage.removeItem('birthdate');
+    sessionStorage.removeItem('age'); 
+    sessionStorage.removeItem('email');
+    RemoveCookie('usrin');
+  }
   return (
   <div className='App-header'>
     <div className='container-page'>{Prompt()}</div>
@@ -89,7 +87,7 @@ function CheckRes() {
           <Link to={'/UpdateProfile'}>
           <h5 className='label1' style={{ right: "-2rem"}}>Update Profile</h5>
           </Link>
-          <Link to={'/'}>
+          <Link to={'/'} onClick={(e)=>onLogout(e)}>
           <h5 className='label1' style={{ right: "-9.3rem"}}>Logout</h5>
           </Link>
           </Box>

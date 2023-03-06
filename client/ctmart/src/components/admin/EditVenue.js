@@ -5,6 +5,7 @@ import axios from 'axios';
 
 function EditPerformer() {
 
+  //initializing 
     let history = useNavigate();
     
     const{venueID}=useParams()
@@ -21,6 +22,7 @@ function EditPerformer() {
     useEffect(()=>{
       loadVenues();
     },[]);
+    //set up the path
     const onSubmit=async(e)=>{
       e.preventDefault();
       await axios.put(`http://localhost:8081/venue/putVenue/${venueID}`,create_venue)

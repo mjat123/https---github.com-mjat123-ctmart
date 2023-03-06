@@ -5,7 +5,7 @@ import axios from 'axios';
 
 function ForgotPass() {
   let history = useNavigate();
-
+// initializing 
   const[accounts,setAccount] = useState([]);
   const[accountlogin,setAccountlogin] = useState({
     username:"",
@@ -16,22 +16,26 @@ function ForgotPass() {
   const onInputChange=(e)=>{
     setAccountlogin({ ...accountlogin,[e.target.name]: e.target.value});
   };
-
+//set up restrictions
   const onSubmit=async(e)=>{
     e.preventDefault();
     try{
       const result = await axios.get(`http://localhost:8081/account/getAccount?username=${username}`);
       setAccount(result.data);
       if((result.data)!=null){
-        if((accountlogin.newpassword)==[accountlogin.password]){
-          await axios.put(`http://localhost:8081/account/putAccountPassword/${(result.data.accountID)}`,accountlogin);
-          alert((result.data.username)+"Password Updated");
-          history("/login")
-        }else{alert("Password Not Match");}
-      }else{alert("ID Number" + [username]+ "does not exist!");}
+        if([accountlogin.newpassword]!==" "){
+          if((accountlogin.newpassword)==[accountlogin.password]){
+            await axios.put(`http://localhost:8081/account/putAccountPassword/${(result.data.accountID)}`,accountlogin);
+            alert((result.data.username)+" Password Updated");
+            history("/login")
+          }else{alert("Password Not Match");}
+        }else{
+          alert("input password ")
+        }
+      }else{alert("User " + [username]+ " does not exist!");}
       
     }catch(e){
-      console.log("ID Number" + [username]+ "does not exist!");
+      console.log("User " + [username]+ " does not exist!");
     }
   }
 
@@ -45,9 +49,9 @@ function ForgotPass() {
         <label>Username</label><br/>
         <input type="text" name="username" label="Username" placeholder='Enter Username' value={username} onChange={(e)=>onInputChange(e)}/><br/>
         <label>New Password</label><br/>
-        <input type="password" name="newpassword" label="Password" placeholder='Enter Password' value={newpassword} onChange={(e)=>onInputChange(e)}/><br/>
+        <input type="password" name="newpassword" placeholder='Enter Password' value={newpassword} onChange={(e)=>onInputChange(e)}/><br/>
         <label>Confirm New Password</label><br/>
-        <input type="password" name="password" label="Password" placeholder='Enter Password' value={password} onChange={(e)=>onInputChange(e)}/><br/><br/>
+        <input type="password" name="password" placeholder='Enter Password' value={password} onChange={(e)=>onInputChange(e)}/><br/><br/>
         <input type="submit" name="btnChangePass" label="btnChangePass" value="Change Password" onClick={(e)=>onSubmit(e)}/>
 
       </div>
